@@ -1,8 +1,19 @@
-import { useState } from 'react';
-import { Phone, Mail, Shield, Users, Home, Wrench, Sparkles, Package, CheckCircle, Menu, X } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Phone, Mail, Shield, Users, Home, Wrench, Sparkles, Package, CheckCircle, Menu, X, Instagram, Facebook } from 'lucide-react';
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [currentBgImage, setCurrentBgImage] = useState(0);
+  
+  const backgroundImages = ['/gallery1.jpg', '/gallery2.jpg', '/gallery3.jpg'];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentBgImage((prev) => (prev + 1) % backgroundImages.length);
+    }, 5000); // Change image every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [backgroundImages.length]);
 
   return (
     <div className="min-h-screen bg-[#1a1a1a] text-gray-100">
@@ -14,12 +25,32 @@ function App() {
               <span className="hidden sm:inline font-bold text-lg text-white">Let It Glow</span>
             </a>
 
-            <div className="hidden md:flex items-center gap-8">
+            <div className="hidden md:flex items-center gap-6">
               <a href="#services" className="text-gray-300 hover:text-red-500 transition-colors text-sm font-medium">Services</a>
               <a href="#gallery" className="text-gray-300 hover:text-red-500 transition-colors text-sm font-medium">Gallery</a>
               <a href="#how-it-works" className="text-gray-300 hover:text-red-500 transition-colors text-sm font-medium">How It Works</a>
               <a href="#contact" className="text-gray-300 hover:text-red-500 transition-colors text-sm font-medium">Contact</a>
-              <a href="tel:+1234567890" className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-full text-sm font-semibold transition-all shadow-lg shadow-red-500/30 hover:scale-105 flex items-center gap-2">
+              <div className="flex items-center gap-3 border-l border-gray-700 pl-6">
+                <a 
+                  href="https://www.instagram.com/letitglowholidaylighting/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 bg-gradient-to-br from-purple-600 to-pink-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
+                  aria-label="Follow us on Instagram"
+                >
+                  <Instagram className="w-4 h-4 text-white" />
+                </a>
+                <a 
+                  href="https://www.facebook.com/profile.php?id=61560141042599" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
+                  aria-label="Follow us on Facebook"
+                >
+                  <Facebook className="w-4 h-4 text-white" />
+                </a>
+              </div>
+              <a href="tel:+12015275215" className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-full text-sm font-semibold transition-all shadow-lg shadow-red-500/30 hover:scale-105 flex items-center gap-2">
                 <Phone className="w-4 h-4" />
                 Call Now
               </a>
@@ -39,15 +70,57 @@ function App() {
               <a href="#gallery" className="block text-gray-300 hover:text-red-500 transition-colors py-2 font-medium" onClick={() => setMobileMenuOpen(false)}>Gallery</a>
               <a href="#how-it-works" className="block text-gray-300 hover:text-red-500 transition-colors py-2 font-medium" onClick={() => setMobileMenuOpen(false)}>How It Works</a>
               <a href="#contact" className="block text-gray-300 hover:text-red-500 transition-colors py-2 font-medium" onClick={() => setMobileMenuOpen(false)}>Contact</a>
-              <a href="tel:+1234567890" className="block bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-full text-center font-semibold transition-all mt-4">Call Now</a>
+              <div className="flex items-center justify-center gap-4 py-4">
+                <a 
+                  href="https://www.instagram.com/letitglowholidaylighting/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-gradient-to-br from-purple-600 to-pink-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
+                  aria-label="Follow us on Instagram"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <Instagram className="w-5 h-5 text-white" />
+                </a>
+                <a 
+                  href="https://www.facebook.com/profile.php?id=61560141042599" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
+                  aria-label="Follow us on Facebook"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <Facebook className="w-5 h-5 text-white" />
+                </a>
+              </div>
+              <a href="tel:+12015275215" className="block bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-full text-center font-semibold transition-all mt-4">Call Now</a>
             </div>
           )}
         </div>
       </nav>
 
       <main>
-        <section id="home" className="relative overflow-hidden bg-gradient-to-b from-[#1a1a1a] via-[#1f1f1f] to-[#1a1a1a] py-20 px-6">
+        <section id="home" className="relative overflow-hidden py-20 px-6 min-h-[90vh] flex items-center">
+          {/* Background Images Carousel */}
           <div className="absolute inset-0 overflow-hidden">
+            {backgroundImages.map((image, index) => (
+              <div
+                key={index}
+                className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                  index === currentBgImage ? 'opacity-80' : 'opacity-0'
+                }`}
+              >
+                <img
+                  src={image}
+                  alt={`Holiday lighting background ${index + 1}`}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a1a]/60 via-[#1f1f1f]/50 to-[#1a1a1a]/60"></div>
+              </div>
+            ))}
+          </div>
+
+          {/* Decorative Elements */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute top-20 left-10 w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
             <div className="absolute top-40 right-20 w-2 h-2 bg-green-500 rounded-full animate-pulse delay-100"></div>
             <div className="absolute top-60 left-1/4 w-2 h-2 bg-yellow-400 rounded-full animate-pulse delay-200"></div>
@@ -55,12 +128,6 @@ function App() {
           </div>
 
           <div className="max-w-6xl mx-auto text-center relative z-10">
-            <img
-              src="/letitglowholidaylighting.jpg"
-              alt="Let It Glow Holiday Lighting"
-              className="w-64 h-64 mx-auto mb-8 drop-shadow-2xl"
-            />
-
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white tracking-tight">
               Make Your Home <span className="text-red-500">Glow</span><br />
               This Holiday Season
@@ -70,20 +137,28 @@ function App() {
               Professional Holiday Lighting, Done Right
             </p>
 
-            <p className="text-lg text-gray-400 mb-10 max-w-2xl mx-auto">
-              Design, installation, maintenance, and removal — fully insured and handled by professionals.
+            <p className="text-lg text-gray-300 mb-6 max-w-2xl mx-auto">
+              Let It Glow is a Holiday Lighting leasing service which Provides Design, Installation and storage for holiday decor - fully insured and handled by professionals.
             </p>
+
+            <div className="mb-10 flex justify-center">
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-red-600/20 to-green-600/20 px-6 py-3 rounded-full border border-red-500/30">
+                <Sparkles className="w-5 h-5 text-yellow-400" />
+                <span className="text-white font-bold text-lg">2000+</span>
+                <span className="text-gray-300">Jobs Completed</span>
+              </div>
+            </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a
-                href="tel:+1234567890"
+                href="tel:+12015275215"
                 className="bg-red-600 hover:bg-red-700 text-white px-10 py-4 rounded-full text-lg font-semibold shadow-lg shadow-red-500/50 hover:shadow-red-500/70 transition-all duration-300 flex items-center gap-2 hover:scale-105"
               >
                 <Phone className="w-5 h-5" />
                 Call Now
               </a>
               <a
-                href="#quote"
+                href="mailto:LetitglowholidayLighting@gmail.com?subject=Free Quote Request"
                 className="bg-green-700 hover:bg-green-800 text-white px-10 py-4 rounded-full text-lg font-semibold shadow-lg shadow-green-500/50 hover:shadow-green-500/70 transition-all duration-300 hover:scale-105"
               >
                 Get a Free Quote
@@ -107,8 +182,8 @@ function App() {
                 <div className="w-16 h-16 bg-red-900/30 rounded-full flex items-center justify-center mb-4 border-2 border-red-700/50">
                   <Users className="w-8 h-8 text-red-500" />
                 </div>
-                <h3 className="font-semibold text-white mb-1">Professional</h3>
-                <p className="text-sm text-gray-400">Expert Installation</p>
+                <h3 className="font-semibold text-white mb-1">2000+ Jobs</h3>
+                <p className="text-sm text-gray-400">Proven Experience</p>
               </div>
 
               <div className="flex flex-col items-center text-center p-6 bg-[#1f1f1f] rounded-2xl border border-gray-800 hover:border-yellow-700/50 transition-all">
@@ -123,8 +198,8 @@ function App() {
                 <div className="w-16 h-16 bg-blue-900/30 rounded-full flex items-center justify-center mb-4 border-2 border-blue-700/50">
                   <Sparkles className="w-8 h-8 text-blue-500" />
                 </div>
-                <h3 className="font-semibold text-white mb-1">Local New Jersey</h3>
-                <p className="text-sm text-gray-400">Your Neighbors</p>
+                <h3 className="font-semibold text-white mb-1">New Milford, NJ</h3>
+                <p className="text-sm text-gray-400">Local & Trusted</p>
               </div>
             </div>
           </div>
@@ -169,13 +244,13 @@ function App() {
                   <Package className="w-7 h-7 text-blue-500" />
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-white">Removal & Storage</h3>
-                <p className="text-gray-400 leading-relaxed">Hassle-free takedown and safe storage until next year</p>
+                <p className="text-gray-400 leading-relaxed">Hassle-free takedown and safe storage for holiday decor until next year</p>
               </div>
             </div>
           </div>
         </section>
 
-        <section id="gallery" className="py-20 px-6 bg-gradient-to-b from-[#151515] to-[#1a1a1a]">
+        {/* <section id="gallery" className="py-20 px-6 bg-gradient-to-b from-[#151515] to-[#1a1a1a]">
           <div className="max-w-5xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
               See the <span className="text-red-500">Glow-Up</span>
@@ -208,6 +283,55 @@ function App() {
               <p className="text-gray-300 mt-8 text-lg italic">
                 "Transform your home into the neighborhood showpiece"
               </p>
+            </div>
+          </div>
+        </section> */}
+
+        <section id="gallery" className="py-20 px-6 bg-gradient-to-b from-[#151515] to-[#1a1a1a]">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-white">
+              <span className="text-green-500">Gallery</span>
+            </h2>
+            <p className="text-center text-gray-400 mb-12 text-lg">
+              See our stunning holiday lighting transformations
+            </p>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+              {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
+                <div
+                  key={num}
+                  className="group relative overflow-hidden rounded-2xl border border-gray-800 hover:border-green-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/20"
+                >
+                  <div className="aspect-square overflow-hidden bg-[#1f1f1f]">
+                    <img
+                      src={`/gallery${num}.jpg`}
+                      alt={`Gallery image ${num} - Holiday lighting transformation`}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                      <div className="flex items-center gap-2">
+                        <Sparkles className="w-4 h-4 text-green-400" />
+                        <span className="text-white text-sm font-medium">View Project</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center mt-8">
+              <a
+                href="https://www.instagram.com/letitglowholidaylighting/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 shadow-lg shadow-green-500/30 hover:shadow-green-500/50"
+              >
+                <Instagram className="w-5 h-5" />
+                View More on Instagram
+              </a>
             </div>
           </div>
         </section>
@@ -253,7 +377,7 @@ function App() {
                   <div className="w-20 h-20 bg-gradient-to-br from-yellow-500 to-yellow-700 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl font-bold shadow-lg shadow-yellow-500/50 border-4 border-[#1a1a1a]">
                     3
                   </div>
-                  <h3 className="text-2xl font-bold mb-4 text-white">Enjoy — We Handle the Rest</h3>
+                  <h3 className="text-2xl font-bold mb-4 text-white">Enjoy - We Handle the Rest</h3>
                   <p className="text-gray-400 leading-relaxed">
                     Relax while we maintain, repair, and remove your lights when the season ends
                   </p>
@@ -279,14 +403,14 @@ function App() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
               <a
-                href="tel:+1234567890"
+                href="tel:+12015275215"
                 className="bg-red-600 hover:bg-red-700 text-white px-12 py-5 rounded-full text-xl font-semibold shadow-lg shadow-red-500/50 hover:shadow-red-500/70 transition-all duration-300 flex items-center gap-2 hover:scale-105"
               >
                 <Phone className="w-6 h-6" />
                 Call Now
               </a>
               <a
-                href="#quote"
+                href="mailto:LetitglowholidayLighting@gmail.com?subject=Quote Request"
                 className="bg-green-700 hover:bg-green-800 text-white px-12 py-5 rounded-full text-xl font-semibold shadow-lg shadow-green-500/50 hover:shadow-green-500/70 transition-all duration-300 flex items-center gap-2 hover:scale-105"
               >
                 <Mail className="w-6 h-6" />
@@ -311,27 +435,47 @@ function App() {
                   className="w-32 h-32 mx-auto md:mx-0 mb-4"
                 />
                 <p className="text-gray-400 text-sm">
-                  Professional holiday lighting services across New Jersey
+                  Let It Glow Holiday Lighting provides Design, Installation and storage for holiday decor. Serving New Milford, NJ and surrounding areas.
                 </p>
               </div>
 
               <div className="text-center">
                 <h3 className="font-bold text-white mb-4 text-lg">Contact Us</h3>
-                <div className="space-y-2">
-                  <a href="tel:+1234567890" className="flex items-center justify-center gap-2 text-gray-300 hover:text-red-500 transition-colors">
+                <div className="space-y-2 mb-4">
+                  <a href="tel:+12015275215" className="flex items-center justify-center gap-2 text-gray-300 hover:text-red-500 transition-colors">
                     <Phone className="w-4 h-4" />
-                    <span>(123) 456-7890</span>
+                    <span>(201) 527-5215</span>
                   </a>
-                  <a href="mailto:info@letitglowlighting.com" className="flex items-center justify-center gap-2 text-gray-300 hover:text-red-500 transition-colors">
+                  <a href="mailto:LetitglowholidayLighting@gmail.com" className="flex items-center justify-center gap-2 text-gray-300 hover:text-red-500 transition-colors">
                     <Mail className="w-4 h-4" />
-                    <span>info@letitglowlighting.com</span>
+                    <span>LetitglowholidayLighting@gmail.com</span>
+                  </a>
+                </div>
+                <div className="flex items-center justify-center gap-4 mt-4">
+                  <a 
+                    href="https://www.instagram.com/letitglowholidaylighting/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 bg-gradient-to-br from-purple-600 to-pink-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-lg hover:shadow-pink-500/50"
+                    aria-label="Follow us on Instagram"
+                  >
+                    <Instagram className="w-5 h-5 text-white" />
+                  </a>
+                  <a 
+                    href="https://www.facebook.com/profile.php?id=61560141042599" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-lg hover:shadow-blue-500/50"
+                    aria-label="Follow us on Facebook"
+                  >
+                    <Facebook className="w-5 h-5 text-white" />
                   </a>
                 </div>
               </div>
 
               <div className="text-center md:text-right">
                 <h3 className="font-bold text-white mb-4 text-lg">Service Area</h3>
-                <p className="text-gray-400 mb-4">Proudly serving all of New Jersey</p>
+                <p className="text-gray-400 mb-4">New Milford, NJ, United States, New Jersey</p>
                 <div className="inline-flex items-center gap-2 bg-green-900/30 px-4 py-2 rounded-full border border-green-700/50">
                   <Shield className="w-5 h-5 text-green-500" />
                   <span className="text-green-400 font-semibold">Fully Insured</span>
