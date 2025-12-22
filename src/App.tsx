@@ -1,9 +1,20 @@
 import { useState, useEffect } from 'react';
-import { Phone, Mail, Shield, Users, Home, Wrench, Sparkles, Package, CheckCircle, Menu, X, Instagram, Facebook } from 'lucide-react';
+import { Phone, Mail, Shield, Users, Home, Wrench, Sparkles, Package, CheckCircle, Menu, X, Instagram, Facebook, Upload, MessageCircle, Lightbulb } from 'lucide-react';
+import Snow from './components/Snow';
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [currentBgImage, setCurrentBgImage] = useState(0);
+  const [quoteModalOpen, setQuoteModalOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    streetAddress: '',
+    town: '',
+    message: '',
+    photos: null as FileList | null,
+  });
   
   const backgroundImages = ['/gallery1.jpg', '/gallery2.jpg', '/gallery3.jpg'];
 
@@ -17,11 +28,12 @@ function App() {
 
   return (
     <div className="min-h-screen bg-[#1a1a1a] text-gray-100">
-      <nav className="sticky top-0 z-50 bg-[#0f0f0f]/95 backdrop-blur-md border-b border-gray-800">
+      <Snow />
+      <nav className="sticky top-0 z-50 bg-[#0f0f0f]/70 backdrop-blur-lg border-b border-gray-800/50">
         <div className="max-w-6xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <a href="#home" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-              <img src="/letitglowholidaylighting.jpg" alt="Let It Glow" className="w-12 h-12 rounded-lg" />
+              <img src="/let_it_glow_transparent.png" alt="Let It Glow" className="w-12 h-12" />
               <span className="hidden sm:inline font-bold text-lg text-white">Let It Glow</span>
             </a>
 
@@ -141,11 +153,15 @@ function App() {
               Let It Glow is a Holiday Lighting leasing service which Provides Design, Installation and storage for holiday decor - fully insured and handled by professionals.
             </p>
 
-            <div className="mb-10 flex justify-center">
+            <div className="mb-10 flex flex-wrap justify-center items-center gap-4">
               <div className="inline-flex items-center gap-2 bg-gradient-to-r from-red-600/20 to-green-600/20 px-6 py-3 rounded-full border border-red-500/30">
-                <Sparkles className="w-5 h-5 text-yellow-400" />
+                <CheckCircle className="w-5 h-5 text-green-400" />
                 <span className="text-white font-bold text-lg">2000+</span>
                 <span className="text-gray-300">Jobs Completed</span>
+              </div>
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-green-600/20 to-green-600/20 px-6 py-3 rounded-full border border-green-500/30">
+                <Shield className="w-5 h-5 text-green-400" />
+                <span className="text-white font-bold text-lg">Fully Insured</span>
               </div>
             </div>
 
@@ -157,12 +173,12 @@ function App() {
                 <Phone className="w-5 h-5" />
                 Call Now
               </a>
-              <a
-                href="mailto:LetitglowholidayLighting@gmail.com?subject=Free Quote Request"
+              <button
+                onClick={() => setQuoteModalOpen(true)}
                 className="bg-green-700 hover:bg-green-800 text-white px-10 py-4 rounded-full text-lg font-semibold shadow-lg shadow-green-500/50 hover:shadow-green-500/70 transition-all duration-300 hover:scale-105"
               >
                 Get a Free Quote
-              </a>
+              </button>
             </div>
           </div>
         </section>
@@ -390,7 +406,7 @@ function App() {
         <section className="py-20 px-6 bg-gradient-to-br from-red-950/30 via-[#1a1a1a] to-green-950/30 border-y border-gray-800">
           <div className="max-w-4xl mx-auto text-center">
             <div className="mb-6">
-              <Sparkles className="w-16 h-16 text-yellow-400 mx-auto animate-pulse" />
+              <Lightbulb className="w-16 h-16 text-yellow-400 mx-auto animate-pulse" />
             </div>
 
             <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white">
@@ -409,13 +425,13 @@ function App() {
                 <Phone className="w-6 h-6" />
                 Call Now
               </a>
-              <a
-                href="mailto:LetitglowholidayLighting@gmail.com?subject=Quote Request"
+              <button
+                onClick={() => setQuoteModalOpen(true)}
                 className="bg-green-700 hover:bg-green-800 text-white px-12 py-5 rounded-full text-xl font-semibold shadow-lg shadow-green-500/50 hover:shadow-green-500/70 transition-all duration-300 flex items-center gap-2 hover:scale-105"
               >
                 <Mail className="w-6 h-6" />
                 Request a Quote
-              </a>
+              </button>
             </div>
 
             <div className="flex items-center justify-center gap-2 text-yellow-400">
@@ -430,7 +446,7 @@ function App() {
             <div className="grid md:grid-cols-3 gap-8 mb-8">
               <div className="text-center md:text-left">
                 <img
-                  src="/letitglowholidaylighting.jpg"
+                  src="/let_it_glow_transparent.png"
                   alt="Let It Glow Holiday Lighting"
                   className="w-32 h-32 mx-auto md:mx-0 mb-4"
                 />
@@ -440,7 +456,10 @@ function App() {
               </div>
 
               <div className="text-center">
-                <h3 className="font-bold text-white mb-4 text-lg">Contact Us</h3>
+                <h3 className="font-bold text-white mb-4 text-lg flex items-center justify-center gap-2">
+                  <MessageCircle className="w-5 h-5 text-green-400" />
+                  Contact Us
+                </h3>
                 <div className="space-y-2 mb-4">
                   <a href="tel:+12015275215" className="flex items-center justify-center gap-2 text-gray-300 hover:text-red-500 transition-colors">
                     <Phone className="w-4 h-4" />
@@ -484,11 +503,193 @@ function App() {
             </div>
 
             <div className="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
-              <p>&copy; 2024 Let It Glow Holiday Lighting. All rights reserved.</p>
+              <p>&copy; 2025 Let It Glow Holiday Lighting. All rights reserved.</p>
             </div>
           </div>
         </footer>
       </main>
+
+      {/* Quote Request Modal */}
+      {quoteModalOpen && (
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
+          onClick={() => setQuoteModalOpen(false)}
+        >
+          <div 
+            className="bg-[#1a1a1a] rounded-2xl border border-gray-800 max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="sticky top-0 bg-[#1a1a1a] border-b border-gray-800 px-6 py-4 flex items-center justify-between">
+              <h2 className="text-2xl font-bold text-white">Request a Free Quote</h2>
+              <button
+                onClick={() => setQuoteModalOpen(false)}
+                className="p-2 hover:bg-gray-800 rounded-lg transition-colors"
+              >
+                <X className="w-6 h-6 text-gray-400" />
+              </button>
+            </div>
+
+            <form 
+              className="p-6 space-y-6"
+              onSubmit={(e) => {
+                e.preventDefault();
+                // Handle form submission here
+                console.log('Form submitted:', formData);
+                // You can add API call or email sending logic here
+                alert('Thank you for your request! We will contact you soon.');
+                setQuoteModalOpen(false);
+                // Reset form
+                setFormData({
+                  name: '',
+                  email: '',
+                  phone: '',
+                  streetAddress: '',
+                  town: '',
+                  message: '',
+                  photos: null,
+                });
+              }}
+            >
+              <div className="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                    Name <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    required
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="w-full px-4 py-3 bg-[#0f0f0f] border border-gray-700 rounded-lg text-white focus:outline-none focus:border-green-500 transition-colors"
+                    placeholder="Your full name"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                    Email <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full px-4 py-3 bg-[#0f0f0f] border border-gray-700 rounded-lg text-white focus:outline-none focus:border-green-500 transition-colors"
+                    placeholder="your.email@example.com"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
+                  Phone Number <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  required
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  className="w-full px-4 py-3 bg-[#0f0f0f] border border-gray-700 rounded-lg text-white focus:outline-none focus:border-green-500 transition-colors"
+                  placeholder="(201) 555-1234"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="streetAddress" className="block text-sm font-medium text-gray-300 mb-2">
+                  Street Address <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="streetAddress"
+                  required
+                  value={formData.streetAddress}
+                  onChange={(e) => setFormData({ ...formData, streetAddress: e.target.value })}
+                  className="w-full px-4 py-3 bg-[#0f0f0f] border border-gray-700 rounded-lg text-white focus:outline-none focus:border-green-500 transition-colors"
+                  placeholder="123 Main Street"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="town" className="block text-sm font-medium text-gray-300 mb-2">
+                  Town <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="town"
+                  required
+                  value={formData.town}
+                  onChange={(e) => setFormData({ ...formData, town: e.target.value })}
+                  className="w-full px-4 py-3 bg-[#0f0f0f] border border-gray-700 rounded-lg text-white focus:outline-none focus:border-green-500 transition-colors"
+                  placeholder="New Milford, NJ"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  rows={4}
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  className="w-full px-4 py-3 bg-[#0f0f0f] border border-gray-700 rounded-lg text-white focus:outline-none focus:border-green-500 transition-colors resize-none"
+                  placeholder="Tell us about your lighting needs..."
+                />
+              </div>
+
+              <div>
+                <label htmlFor="photos" className="block text-sm font-medium text-gray-300 mb-2">
+                  Upload Photos (Optional)
+                </label>
+                <div className="flex items-center justify-center w-full">
+                  <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-700 border-dashed rounded-lg cursor-pointer bg-[#0f0f0f] hover:border-green-500 transition-colors">
+                    <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                      <Upload className="w-8 h-8 mb-2 text-gray-400" />
+                      <p className="mb-2 text-sm text-gray-400">
+                        <span className="font-semibold">Click to upload</span> or drag and drop
+                      </p>
+                      <p className="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+                    </div>
+                    <input
+                      type="file"
+                      id="photos"
+                      multiple
+                      accept="image/*"
+                      className="hidden"
+                      onChange={(e) => setFormData({ ...formData, photos: e.target.files })}
+                    />
+                  </label>
+                </div>
+                {formData.photos && formData.photos.length > 0 && (
+                  <p className="mt-2 text-sm text-gray-400">
+                    {formData.photos.length} file(s) selected
+                  </p>
+                )}
+              </div>
+
+              <div className="flex gap-4 pt-4">
+                <button
+                  type="button"
+                  onClick={() => setQuoteModalOpen(false)}
+                  className="flex-1 px-6 py-3 border border-gray-700 text-gray-300 rounded-lg hover:bg-gray-800 transition-colors font-medium"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="flex-1 px-6 py-3 bg-green-700 hover:bg-green-800 text-white rounded-lg font-semibold shadow-lg shadow-green-500/30 hover:shadow-green-500/50 transition-all"
+                >
+                  Submit Request
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
