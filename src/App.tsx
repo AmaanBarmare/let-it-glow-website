@@ -16,7 +16,7 @@ function App() {
     photos: null as FileList | null,
   });
   
-  const backgroundImages = ['/gallery1.jpg', '/gallery2.jpg', '/gallery3.jpg'];
+  const backgroundImages = ['/gallery1.jpg', '/gallery7.jpg', '/gallery3.jpg'];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -185,7 +185,7 @@ function App() {
 
         <section className="py-12 px-6 bg-[#151515]">
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
               <div className="flex flex-col items-center text-center p-6 bg-[#1f1f1f] rounded-2xl border border-gray-800 hover:border-green-700/50 transition-all">
                 <div className="w-16 h-16 bg-green-900/30 rounded-full flex items-center justify-center mb-4 border-2 border-green-700/50">
                   <Shield className="w-8 h-8 text-green-500" />
@@ -208,14 +208,6 @@ function App() {
                 </div>
                 <h3 className="font-semibold text-white mb-1">Residential & Commercial</h3>
                 <p className="text-sm text-gray-400">All Properties</p>
-              </div>
-
-              <div className="flex flex-col items-center text-center p-6 bg-[#1f1f1f] rounded-2xl border border-gray-800 hover:border-blue-700/50 transition-all">
-                <div className="w-16 h-16 bg-blue-900/30 rounded-full flex items-center justify-center mb-4 border-2 border-blue-700/50">
-                  <Sparkles className="w-8 h-8 text-blue-500" />
-                </div>
-                <h3 className="font-semibold text-white mb-1">New Milford, NJ</h3>
-                <p className="text-sm text-gray-400">Local & Trusted</p>
               </div>
             </div>
           </div>
