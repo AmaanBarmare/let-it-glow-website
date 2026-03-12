@@ -356,8 +356,8 @@ function App() {
             <div className="grid md:grid-cols-3 gap-8 relative">
               <div className="hidden md:block absolute top-24 left-0 right-0 h-1 bg-gradient-to-r from-red-500 via-green-500 to-yellow-500 opacity-20"></div>
 
-              <div className="relative">
-                <div className="bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 rounded-3xl border border-gray-800 hover:border-red-500/50 transition-all text-center">
+              <div className="relative flex">
+                <div className="bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 rounded-3xl border border-gray-800 hover:border-red-500/50 transition-all text-center w-full flex flex-col flex-1">
                   <div className="w-20 h-20 bg-gradient-to-br from-red-600 to-red-800 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl font-bold shadow-lg shadow-red-500/50 border-4 border-[#1a1a1a]">
                     1
                   </div>
@@ -368,8 +368,8 @@ function App() {
                 </div>
               </div>
 
-              <div className="relative">
-                <div className="bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 rounded-3xl border border-gray-800 hover:border-green-500/50 transition-all text-center">
+              <div className="relative flex">
+                <div className="bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 rounded-3xl border border-gray-800 hover:border-green-500/50 transition-all text-center w-full flex flex-col flex-1">
                   <div className="w-20 h-20 bg-gradient-to-br from-green-600 to-green-800 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl font-bold shadow-lg shadow-green-500/50 border-4 border-[#1a1a1a]">
                     2
                   </div>
@@ -380,8 +380,8 @@ function App() {
                 </div>
               </div>
 
-              <div className="relative">
-                <div className="bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 rounded-3xl border border-gray-800 hover:border-yellow-500/50 transition-all text-center">
+              <div className="relative flex">
+                <div className="bg-gradient-to-br from-[#1f1f1f] to-[#151515] p-8 rounded-3xl border border-gray-800 hover:border-yellow-500/50 transition-all text-center w-full flex flex-col flex-1">
                   <div className="w-20 h-20 bg-gradient-to-br from-yellow-500 to-yellow-700 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl font-bold shadow-lg shadow-yellow-500/50 border-4 border-[#1a1a1a]">
                     3
                   </div>
