@@ -29,7 +29,7 @@ function App() {
   return (
     <div className="min-h-screen bg-[#1a1a1a] text-gray-100">
       <Snow />
-      <nav className="sticky top-0 z-50 bg-[#0f0f0f]/70 backdrop-blur-lg border-b border-gray-800/50">
+      <nav className="sticky top-0 z-50 bg-[#0f0f0f]/85 backdrop-blur-lg border-b border-gray-800/50 shadow-sm shadow-black/20">
         <div className="max-w-6xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <a href="#home" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
@@ -37,11 +37,11 @@ function App() {
               <span className="hidden sm:inline font-bold text-lg text-white">Let It Glow</span>
             </a>
 
-            <div className="hidden md:flex items-center gap-6">
-              <a href="#services" className="text-gray-300 hover:text-red-500 transition-colors text-sm font-medium">Services</a>
-              <a href="#gallery" className="text-gray-300 hover:text-red-500 transition-colors text-sm font-medium">Gallery</a>
-              <a href="#how-it-works" className="text-gray-300 hover:text-red-500 transition-colors text-sm font-medium">How It Works</a>
-              <a href="#contact" className="text-gray-300 hover:text-red-500 transition-colors text-sm font-medium">Contact</a>
+            <div className="hidden md:flex items-center gap-7">
+              <a href="#services" className="text-gray-200 hover:text-red-400 transition-colors text-[0.95rem] font-medium tracking-wide">Services</a>
+              <a href="#gallery" className="text-gray-200 hover:text-red-400 transition-colors text-[0.95rem] font-medium tracking-wide">Gallery</a>
+              <a href="#how-it-works" className="text-gray-200 hover:text-red-400 transition-colors text-[0.95rem] font-medium tracking-wide">How It Works</a>
+              <a href="#contact" className="text-gray-200 hover:text-red-400 transition-colors text-[0.95rem] font-medium tracking-wide">Contact</a>
               <div className="flex items-center gap-3 border-l border-gray-700 pl-6">
                 <a 
                   href="https://www.instagram.com/letitglowholidaylighting/" 
@@ -111,7 +111,7 @@ function App() {
       </nav>
 
       <main>
-        <section id="home" className="relative overflow-hidden py-20 px-6 min-h-[90vh] flex items-center">
+        <section id="home" className="relative overflow-hidden py-20 px-6 min-h-[90vh] flex items-center scroll-mt-24">
           {/* Background Images Carousel */}
           <div className="absolute inset-0 overflow-hidden">
             {backgroundImages.map((image, index) => (
@@ -126,7 +126,7 @@ function App() {
                   alt={`Holiday lighting background ${index + 1}`}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a1a]/60 via-[#1f1f1f]/50 to-[#1a1a1a]/60"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-[#0f0f0f]/65 to-black/80"></div>
               </div>
             ))}
           </div>
@@ -139,21 +139,21 @@ function App() {
             <div className="absolute bottom-40 right-1/4 w-3 h-3 bg-blue-400 rounded-full animate-pulse delay-300"></div>
           </div>
 
-          <div className="max-w-6xl mx-auto text-center relative z-10">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white tracking-tight">
+          <div className="max-w-6xl mx-auto text-center relative z-30">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white tracking-tight [text-shadow:0_2px_24px_rgba(0,0,0,0.85),0_1px_3px_rgba(0,0,0,0.9)]">
               Make Your Home <span className="text-red-500">Glow</span><br />
               This Holiday Season
             </h1>
 
-            <p className="text-xl md:text-2xl text-gray-300 mb-4 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-200 mb-4 max-w-3xl mx-auto leading-relaxed [text-shadow:0_1px_12px_rgba(0,0,0,0.75)]">
               Professional Holiday Lighting, Done Right
             </p>
 
-            <p className="text-lg text-gray-300 mb-6 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-200/95 mb-8 max-w-2xl mx-auto [text-shadow:0_1px_10px_rgba(0,0,0,0.7)]">
               Let It Glow is a Holiday Lighting leasing service which Provides Design, Installation and storage for holiday decor - fully insured and handled by professionals.
             </p>
 
-            <div className="mb-10 flex flex-wrap justify-center items-center gap-4">
+            <div className="mb-12 flex flex-wrap justify-center items-center gap-4">
               <div className="inline-flex items-center gap-2 bg-gradient-to-r from-red-600/20 to-green-600/20 px-6 py-3 rounded-full border border-red-500/30">
                 <CheckCircle className="w-5 h-5 text-green-400" />
                 <span className="text-white font-bold text-lg">2000+</span>
@@ -213,7 +213,7 @@ function App() {
           </div>
         </section>
 
-        <section id="services" className="py-20 px-6 bg-[#1a1a1a]">
+        <section id="services" className="py-20 px-6 bg-[#1a1a1a] scroll-mt-24">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-white">
               Our <span className="text-green-500">Services</span>
@@ -295,7 +295,7 @@ function App() {
           </div>
         </section> */}
 
-        <section id="gallery" className="py-20 px-6 bg-gradient-to-b from-[#151515] to-[#1a1a1a]">
+        <section id="gallery" className="py-20 px-6 bg-gradient-to-b from-[#151515] to-[#1a1a1a] scroll-mt-24">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-white">
               <span className="text-green-500">Gallery</span>
@@ -344,7 +344,7 @@ function App() {
           </div>
         </section>
 
-        <section id="how-it-works" className="py-20 px-6 bg-[#1a1a1a]">
+        <section id="how-it-works" className="py-20 px-6 bg-[#1a1a1a] scroll-mt-24">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-white">
               How It <span className="text-green-500">Works</span>
@@ -426,16 +426,18 @@ function App() {
               </button>
             </div>
 
-            <div className="flex items-center justify-center gap-2 text-yellow-400">
-              <CheckCircle className="w-5 h-5" />
-              <span className="text-sm font-semibold">Book now and secure your spot before we're fully booked!</span>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-2 text-amber-100/95 max-w-xl mx-auto">
+              <CheckCircle className="w-5 h-5 shrink-0 text-amber-300" aria-hidden />
+              <span className="text-sm sm:text-base font-medium text-center [text-shadow:0_1px_8px_rgba(0,0,0,0.5)]">
+                Book now and secure your spot before we&apos;re fully booked!
+              </span>
             </div>
           </div>
         </section>
 
-        <footer id="contact" className="bg-[#0f0f0f] py-12 px-6 border-t border-gray-800">
+        <footer id="contact" className="bg-gradient-to-b from-[#141414] via-[#0f0f0f] to-[#0a0a0a] py-14 px-6 border-t border-gray-800/80 scroll-mt-24">
           <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-8 mb-8">
+            <div className="grid md:grid-cols-3 gap-10 md:gap-12 mb-10 items-start">
               <div className="text-center md:text-left">
                 <img
                   src="/let_it_glow_transparent.png"
@@ -484,18 +486,18 @@ function App() {
                 </div>
               </div>
 
-              <div className="text-center md:text-right">
-                <h3 className="font-bold text-white mb-4 text-lg">Service Area</h3>
-                <p className="text-gray-400 mb-4">New Milford, NJ, United States, New Jersey</p>
-                <div className="inline-flex items-center gap-2 bg-green-900/30 px-4 py-2 rounded-full border border-green-700/50">
-                  <Shield className="w-5 h-5 text-green-500" />
+              <div className="text-center md:text-right flex flex-col items-center md:items-end gap-4">
+                <h3 className="font-bold text-white text-lg">Service Area</h3>
+                <p className="text-gray-400 max-w-xs md:max-w-none md:ml-auto">New Milford, NJ, United States, New Jersey</p>
+                <div className="inline-flex items-center gap-2 bg-green-900/30 px-4 py-2.5 rounded-full border border-green-700/50">
+                  <Shield className="w-5 h-5 text-green-500 shrink-0" />
                   <span className="text-green-400 font-semibold">Fully Insured</span>
                 </div>
               </div>
             </div>
 
-            <div className="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
-              <p>&copy; 2025 Let It Glow Holiday Lighting. All rights reserved.</p>
+            <div className="border-t border-gray-800/80 pt-8 text-center text-gray-500 text-sm">
+              <p>&copy; 2026 Let It Glow Holiday Lighting. All rights reserved.</p>
             </div>
           </div>
         </footer>

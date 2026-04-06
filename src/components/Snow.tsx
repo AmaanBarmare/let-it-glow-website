@@ -55,7 +55,10 @@ const Snow = () => {
           }
         ).join('')}
       </style>
-      <div className="fixed inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 9999 }}>
+      <div
+        className="fixed inset-0 pointer-events-none overflow-hidden z-[25]"
+        aria-hidden="true"
+      >
         {snowflakes.map((flake) => (
           <div
             key={flake.id}
