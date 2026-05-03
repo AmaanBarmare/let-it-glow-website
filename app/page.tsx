@@ -73,7 +73,7 @@ export default function Home() {
             <h1 className="font-display font-black leading-[0.98] text-[clamp(2.8rem,7.4vw,6.6rem)] mb-7">
               Bergen County’s
               <br />
-              brightest homes —
+              brightest homes,
               <br />
               <em className="text-gold-light italic">every season.</em>
             </h1>
@@ -81,7 +81,7 @@ export default function Home() {
             <p className="text-[1.05rem] md:text-[1.15rem] text-white/85 leading-[1.75] max-w-[580px] mb-10">
               Professional holiday lighting installations, permanent year-round
               landscape and architectural systems, and full-service
-              maintenance — designed and installed locally from New Milford.
+              maintenance. Designed and installed locally from New Milford.
             </p>
 
             <div className="flex flex-wrap gap-4 mb-12">

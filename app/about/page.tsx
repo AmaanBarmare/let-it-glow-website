@@ -10,14 +10,14 @@ import { SITE } from '@/lib/content';
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'Let It Glow Holiday Lighting is owner-operated by Cory Mancini, based in New Milford, NJ — serving Bergen County and beyond for over a decade.',
+    'Let It Glow Holiday Lighting is owner-operated by Cory Mancini, based in New Milford, NJ, and has served Bergen County and beyond for over a decade.',
 };
 
 const VALUES = [
   {
     icon: Shield,
     title: 'Fully Insured & Trained',
-    desc: 'General liability and workers’ comp on every job. Our crew is trained for safe install at height — no shortcuts, no liability on your end.',
+    desc: 'General liability and workers’ comp on every job. Our crew is trained for safe install at height. No shortcuts, no liability on your end.',
   },
   {
     icon: MapPin,
@@ -51,7 +51,7 @@ export default function AboutPage() {
           <p className="text-base md:text-lg text-white/75 leading-[1.8] max-w-[700px] mx-auto">
             Owner-operated by Cory Mancini, fully insured, and based in New
             Milford. We design, install, maintain and store outdoor lighting
-            for homes and businesses across New Jersey — and we’ve been doing
+            for homes and businesses across New Jersey, and we’ve been doing
             it for over a decade.
           </p>
         </div>
@@ -79,13 +79,13 @@ export default function AboutPage() {
                 <p>
                   Cory Mancini started Let It Glow Holiday Lighting right
                   here in New Milford with a simple promise: do it the way it
-                  should be done — measured, custom-fit, professionally
+                  should be done. Measured, custom-fit, professionally
                   installed, maintained through the season, and taken down
                   without you lifting a finger.
                 </p>
                 <p>
                   Ten-plus years later, we run residential and commercial
-                  installs across Bergen County and beyond — including a
+                  installs across Bergen County and beyond, including a
                   recent flagship build for a Harley-Davidson dealership.
                   Same crew, same standard, every year.
                 </p>
@@ -185,7 +185,7 @@ export default function AboutPage() {
                 </span>
               ))}
               <span className="px-4 py-2 bg-crimson/5 border border-crimson/20 text-crimson text-sm rounded-full font-bold">
-                + more — just ask
+                + more · just ask
               </span>
             </div>
           </Reveal>

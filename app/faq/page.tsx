@@ -42,7 +42,7 @@ export default function FaqPage() {
           </h1>
           <p className="text-base md:text-lg text-white/75 leading-[1.8] max-w-[640px] mx-auto">
             The things we get asked the most. Don’t see yours below? Call or
-            text — we’re happy to walk through it.
+            text. We’re happy to walk through it.
           </p>
         </div>
       </section>

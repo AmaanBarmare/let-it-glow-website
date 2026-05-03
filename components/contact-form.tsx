@@ -56,7 +56,7 @@ export default function ContactForm() {
       <div className="bg-white rounded-2xl shadow-card p-10 md:p-14 text-center">
         <CheckCircle2 className="w-14 h-14 text-forest mx-auto mb-5" />
         <h3 className="font-display text-3xl md:text-4xl font-bold text-ink mb-3">
-          Thanks — we’ve got it.
+          Thanks. We’ve got it.
         </h3>
         <p className="text-ink-light leading-relaxed max-w-prose mx-auto">
           We’ll be in touch within one business day to set up your free
@@ -176,7 +176,7 @@ export default function ContactForm() {
               {s.title}
             </option>
           ))}
-          <option value="Not sure">Not sure — help me design it</option>
+          <option value="Not sure">Not sure (help me design it)</option>
         </select>
       </div>
 

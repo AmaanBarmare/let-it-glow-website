@@ -46,12 +46,12 @@ export const SERVICES: Service[] = [
     title: 'Residential Holiday Lighting',
     short:
       'Custom-fit roofline, gutter and landscape lighting that turns your home into the showstopper of the block. Pro-grade LEDs, hidden cords, no DIY.',
-    full: 'We measure your roofline to the inch, source professional-grade C9 and mini LED bulbs, and install everything to look custom — never draped or generic. Outlets, timers, and clips are all hidden cleanly. When the season ends we take it all down and store it for you.',
+    full: 'We measure your roofline to the inch, source professional-grade C9 and mini LED bulbs, and install everything to look custom, never draped or generic. Outlets, timers, and clips are all hidden cleanly. When the season ends we take it all down and store it for you.',
     bullets: [
       'C9, C7, mini-LED, and warm-white options',
       'Roofline, gutter, eave, tree wrap and landscape',
       'Lights, clips, timers and outlets all included',
-      'Storage between seasons — we keep them, you don’t',
+      'Storage between seasons (we keep them, you don’t)',
     ],
   },
   {
@@ -75,8 +75,8 @@ export const SERVICES: Service[] = [
     category: 'Year-Round',
     title: 'Year-Round Outdoor Lighting',
     short:
-      'Permanent landscape, architectural and uplighting that keeps your property glowing in spring, summer and fall — long after the holiday season ends.',
-    full: 'Holidays are a few weeks. Curb appeal is twelve months. We design and install permanent low-voltage and architectural systems that highlight your home’s best features after sunset, all year — and integrate cleanly with your seasonal display when December rolls around.',
+      'Permanent landscape, architectural and uplighting that keeps your property glowing in spring, summer and fall, long after the holiday season ends.',
+    full: 'Holidays are a few weeks. Curb appeal is twelve months. We design and install permanent low-voltage and architectural systems that highlight your home’s best features after sunset all year, and integrate cleanly with your seasonal display when December rolls around.',
     bullets: [
       'Path, garden, uplight and downlight systems',
       'Architectural facade and column wash lighting',
@@ -90,7 +90,7 @@ export const SERVICES: Service[] = [
     category: 'Service',
     title: 'In-Season Maintenance',
     short:
-      'Bulb out, clip loose, squirrel made a meal of a wire? You text — we’re back within 72 hours and fix it at no extra charge. No tickets, no upsells.',
+      'Bulb out, clip loose, squirrel made a meal of a wire? You text, we’re back within 72 hours, and we fix it at no extra charge. No tickets, no upsells.',
     full: 'Every install we do is covered by free in-season maintenance. If anything goes wrong between Thanksgiving and New Year’s, we respond within 72 hours and fix it at no extra cost. No tickets, no upsells. You text, we show up.',
     bullets: [
       '72-hour response across the season',
@@ -105,7 +105,7 @@ export const SERVICES: Service[] = [
     category: 'Service',
     title: 'Takedown & Storage',
     short:
-      'After the season we remove every clip, bulb and cord and pack it into labeled bins kept in our facility — so next year it’s the same set, fitted again.',
+      'After the season we remove every clip, bulb and cord and pack it into labeled bins kept in our facility, so next year it’s the same set, fitted again.',
     full: 'Most homeowners dread January more than they enjoy December. We come back on a scheduled day, remove every clip, every bulb, every cord, and pack it into labeled bins kept in our climate-controlled storage. Next year it comes back to your house ready to install.',
     bullets: [
       'Scheduled takedown after Three Kings’ Day',
@@ -120,8 +120,8 @@ export const SERVICES: Service[] = [
     category: 'Service',
     title: 'Custom Design',
     short:
-      'Free in-person consult and a hand-drawn lighting plan made for your specific home. Itemized quote in three business days — no upsells, no obligation.',
-    full: 'Not sure what you want yet? We come to your property, walk the site with you, take measurements, and put together a lighting plan and quote — usually within three business days. Simple elegance, full winter wonderland, or something in between.',
+      'Free in-person consult and a hand-drawn lighting plan made for your specific home. Itemized quote in three business days. No upsells, no obligation.',
+    full: 'Not sure what you want yet? We come to your property, walk the site with you, take measurements, and put together a lighting plan and quote, usually within three business days. Simple elegance, full winter wonderland, or something in between.',
     bullets: [
       'In-person walkthrough and measure',
       'Hand-drawn elevation with light placement',
@@ -142,7 +142,7 @@ export type Testimonial = {
 export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
-      'Smooth, simple, quick — and the results were spectacular. The crew was polite, professional, and on time. Best-looking house on the block all season.',
+      'Smooth, simple, quick, and the results were spectacular. The crew was polite, professional, and on time. Best-looking house on the block all season.',
     author: 'Bergen County Homeowner',
     location: 'New Milford, NJ',
   },
@@ -174,11 +174,11 @@ export type FaqItem = {
 export const FAQS: FaqItem[] = [
   {
     q: 'Do you only do holiday lighting?',
-    a: 'No — we install permanent landscape, architectural and uplighting year-round. Holiday is our flagship season because that’s when most homes go up, but we’re busy in spring, summer, and fall too.',
+    a: 'No. We install permanent landscape, architectural and uplighting year-round. Holiday is our flagship season because that’s when most homes go up, but we stay busy in spring, summer, and fall too.',
   },
   {
     q: 'Do I need to buy my own lights?',
-    a: 'No. We supply commercial-grade C9 and mini-LED lights as part of our service. You don’t buy them, store them, or replace them — they’re ours, and we maintain them year over year.',
+    a: 'No. We supply commercial-grade C9 and mini-LED lights as part of our service. You don’t buy them, store them, or replace them. They’re ours, and we maintain them year over year.',
   },
   {
     q: 'When should I book?',
@@ -186,11 +186,11 @@ export const FAQS: FaqItem[] = [
   },
   {
     q: 'What happens if a bulb burns out?',
-    a: 'Text us. We respond within 72 hours during the season — usually faster — and replace it at no charge. Storm damage and wind issues are prioritized same-day or next-day.',
+    a: 'Text us. We respond within 72 hours during the season (usually faster) and replace it at no charge. Storm damage and wind issues are prioritized same-day or next-day.',
   },
   {
     q: 'Do you serve commercial properties?',
-    a: 'Yes — restaurants, retail, dealerships, office parks, multi-family residential, and HOAs across Bergen County. We can provide a Certificate of Insurance and work with property managers on payment terms.',
+    a: 'Yes. Restaurants, retail, dealerships, office parks, multi-family residential, and HOAs across Bergen County. We can provide a Certificate of Insurance and work with property managers on payment terms.',
   },
   {
     q: 'How much does it cost?',
@@ -198,11 +198,11 @@ export const FAQS: FaqItem[] = [
   },
   {
     q: 'Are you insured?',
-    a: 'Fully insured — general liability and workers’ comp. We can email a current COI to your property manager or HOA on request.',
+    a: 'Fully insured for general liability and workers’ comp. We can email a current COI to your property manager or HOA on request.',
   },
   {
     q: 'Do you handle takedown too?',
-    a: 'Yes — included. We come back on a scheduled day after the holidays, remove everything, and store the lights under your name in our facility. Same set comes back next year.',
+    a: 'Yes, included. We come back on a scheduled day after the holidays, remove everything, and store the lights under your name in our facility. Same set comes back next year.',
   },
 ];
 
@@ -247,16 +247,16 @@ export type WhyItem = {
 
 export const WHY_ITEMS: WhyItem[] = [
   {
-    title: 'We own the lights — you own the peace of mind',
+    title: 'We own the lights, you own the peace of mind',
     desc: 'No upfront investment, no storage headaches. We provide commercial-grade fixtures and store them between seasons.',
   },
   {
     title: 'Trained, insured, local crew',
-    desc: 'Fully insured for liability and workers’ comp. Trained for safe install at height. Based in New Milford — your neighbors.',
+    desc: 'Fully insured for liability and workers’ comp. Trained for safe install at height. Based in New Milford, so we’re your neighbors.',
   },
   {
     title: 'Custom-fit, never generic',
-    desc: 'We measure to the inch. Lights are cut and clipped to your exact roofline, eaves and landscape — no draping or guesswork.',
+    desc: 'We measure to the inch. Lights are cut and clipped to your exact roofline, eaves and landscape. No draping or guesswork.',
   },
   {
     title: 'Year-round, on-call support',
@@ -294,7 +294,7 @@ export const FEATURED_WORK: FeaturedWork[] = [
     category: 'Commercial',
     client: 'Harley-Davidson Dealership · Bergen County',
     blurb:
-      'Full exterior holiday installation for a flagship motorcycle dealership — designed to draw eyes from the highway and stay reliable through three months of New Jersey winter.',
+      'Full exterior holiday installation for a flagship motorcycle dealership, designed to draw eyes from the highway and stay reliable through three months of New Jersey winter.',
     image: '/gallery5.jpg',
   },
   {
@@ -325,7 +325,7 @@ export const SEASONS: SeasonItem[] = [
   {
     iconKey: 'holiday',
     name: 'Holiday Season',
-    desc: 'Christmas, Hanukkah and winter lighting — installed, maintained, and taken down.',
+    desc: 'Christmas, Hanukkah and winter lighting. Installed, maintained, and taken down.',
   },
   {
     iconKey: 'spring',

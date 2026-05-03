@@ -13,7 +13,7 @@ import { SERVICES } from '@/lib/content';
 export const metadata: Metadata = {
   title: 'Services',
   description:
-    'Residential, commercial, and year-round lighting services in Bergen County, NJ — design, install, maintenance, takedown and storage.',
+    'Residential, commercial, and year-round lighting services in Bergen County, NJ. Design, install, maintenance, takedown and storage.',
 };
 
 export default function ServicesPage() {
@@ -50,7 +50,7 @@ export default function ServicesPage() {
               Zero hassle.
             </h1>
             <p className="text-base md:text-lg text-white/80 leading-[1.8] max-w-[640px]">
-              Pick what you need — most customers go end-to-end so they don’t
+              Pick what you need. Most customers go end-to-end so they don’t
               lift a finger from October to January, and stay glowing the rest
               of the year too.
             </p>
@@ -74,7 +74,7 @@ export default function ServicesPage() {
           </h2>
           <p className="text-ink-light text-[1.05rem] leading-[1.8] max-w-[640px] mb-14">
             Holiday installations are how most customers find us. We treat
-            every roofline like a custom job — measured, fitted, and clean.
+            every roofline like a custom job: measured, fitted, and clean.
           </p>
           <div className="grid md:grid-cols-2 gap-6 lg:gap-7 items-stretch">
             {holiday.map((s, i) => (
@@ -100,7 +100,7 @@ export default function ServicesPage() {
           </h2>
           <p className="text-ink-light text-[1.05rem] leading-[1.8] max-w-[640px] mb-14">
             Permanent landscape, architectural and uplighting that highlights
-            your property after sunset — every season, not just December.
+            your property after sunset, every season, not just December.
           </p>
           <div className="grid md:grid-cols-2 gap-6 lg:gap-7 items-stretch">
             {yearRound.map((s, i) => (
@@ -144,7 +144,7 @@ export default function ServicesPage() {
                     Most customers go <em>end-to-end</em>
                   </>
                 }
-                sub="Combine design, install, maintenance, takedown and storage into one annual package — one phone call, one invoice, the same crew every year. We’ll quote it free."
+                sub="Combine design, install, maintenance, takedown and storage into one annual package: one phone call, one invoice, the same crew every year. We’ll quote it free."
               />
               <div className="flex flex-wrap justify-center gap-4 mt-8">
                 <Button href="/contact" variant="red">

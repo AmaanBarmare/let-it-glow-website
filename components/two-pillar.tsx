@@ -17,7 +17,7 @@ export default function TwoPillar() {
             <em className="text-forest italic">Year-round is why we never leave.</em>
           </h2>
           <p className="text-base md:text-lg text-ink-light leading-[1.8]">
-            Most of our calendar fills up between October and January — but we
+            Most of our calendar fills up between October and January, but we
             install permanent landscape and architectural lighting in every
             other month, too. Same crew, same standards, the rest of the year.
           </p>
@@ -86,7 +86,7 @@ export default function TwoPillar() {
                 </h3>
                 <p className="text-white/85 text-[0.95rem] md:text-base leading-[1.7] mb-5 max-w-[40ch]">
                   Permanent landscape, architectural and uplighting designed to
-                  highlight your property after sunset — every season.
+                  highlight your property after sunset, every season.
                 </p>
                 <span className="inline-flex items-center gap-1.5 text-[0.78rem] font-bold tracking-[0.14em] uppercase border-b border-white/40 pb-0.5 group-hover:border-gold-light group-hover:text-gold-light transition-colors">
                   See year-round services
