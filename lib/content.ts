@@ -1,15 +1,17 @@
 export const SITE = {
   name: 'Let It Glow Holiday Lighting',
   shortName: 'Let It Glow',
-  tagline: 'Make Your Home Glow This Season',
+  positioning:
+    'Holiday lighting is what we’re known for. Year-round outdoor lighting is why we never leave.',
   address: {
     street: '260 Birchwood Rd',
     city: 'New Milford',
     state: 'NJ',
     zip: '07646',
   },
-  phone: '(201) 555-0199',
+  phone: '(201) 527-5215',
   email: 'info@letitglowholidaylighting.com',
+  owner: 'Cory Mancini',
   social: {
     instagram: 'https://www.instagram.com/letitglowholidaylighting/',
     facebook: 'https://www.facebook.com/profile.php?id=61560141042599',
@@ -18,11 +20,20 @@ export const SITE = {
     'New Milford, Teaneck, Hackensack, Paramus, Ridgewood, Englewood, Fort Lee, and all of Bergen County, NJ.',
 } as const;
 
+export type ServiceIconKey =
+  | 'residential'
+  | 'commercial'
+  | 'year-round'
+  | 'maintenance'
+  | 'takedown'
+  | 'design';
+
 export type Service = {
   slug: string;
-  emoji: string;
+  iconKey: ServiceIconKey;
+  category: 'Holiday' | 'Year-Round' | 'Service';
   title: string;
-  short: string;
+  short: string; // Used on home/services cards. Keep ~140-160 chars for equal-height cards.
   full: string;
   bullets: string[];
 };
@@ -30,10 +41,11 @@ export type Service = {
 export const SERVICES: Service[] = [
   {
     slug: 'residential',
-    emoji: '🏠',
+    iconKey: 'residential',
+    category: 'Holiday',
     title: 'Residential Holiday Lighting',
     short:
-      'Custom-fit roofline, gutter and landscape lighting that makes your home the showstopper of the block.',
+      'Custom-fit roofline, gutter and landscape lighting that turns your home into the showstopper of the block. Pro-grade LEDs, hidden cords, no DIY.',
     full: 'We measure your roofline to the inch, source professional-grade C9 and mini LED bulbs, and install everything to look custom — never draped or generic. Outlets, timers, and clips are all hidden cleanly. When the season ends we take it all down and store it for you.',
     bullets: [
       'C9, C7, mini-LED, and warm-white options',
@@ -44,24 +56,26 @@ export const SERVICES: Service[] = [
   },
   {
     slug: 'commercial',
-    emoji: '🏢',
+    iconKey: 'commercial',
+    category: 'Holiday',
     title: 'Commercial Lighting',
     short:
-      'Storefront, office, and large-property displays designed to draw foot traffic and stand out from the strip.',
-    full: 'We work directly with property managers, retail owners, and HOAs to design installations that meet code, look intentional, and turn on every night without anyone on your team thinking about it. Includes scheduled checks throughout the season.',
+      'Storefronts, dealerships, restaurants and offices designed to draw foot traffic. Includes COI, weekly drive-by checks, and on-call response in season.',
+    full: 'We work directly with property managers, retail owners, dealerships, and HOAs to design installations that meet code, look intentional, and turn on every night without anyone on your team thinking about it. Includes scheduled checks throughout the season.',
     bullets: [
-      'Storefronts, office parks, restaurants and HOAs',
-      'COI (certificate of insurance) provided on request',
+      'Storefronts, dealerships, restaurants, office parks, HOAs',
+      'Certificate of Insurance provided on request',
       'Weekly drive-by checks during peak season',
       'Coordinated brand colors and corporate themes',
     ],
   },
   {
     slug: 'year-round',
-    emoji: '🌿',
+    iconKey: 'year-round',
+    category: 'Year-Round',
     title: 'Year-Round Outdoor Lighting',
     short:
-      'Permanent landscape, architectural and uplighting that keeps your property glowing in every season.',
+      'Permanent landscape, architectural and uplighting that keeps your property glowing in spring, summer and fall — long after the holiday season ends.',
     full: 'Holidays are a few weeks. Curb appeal is twelve months. We design and install permanent low-voltage and architectural systems that highlight your home’s best features after sunset, all year — and integrate cleanly with your seasonal display when December rolls around.',
     bullets: [
       'Path, garden, uplight and downlight systems',
@@ -72,10 +86,11 @@ export const SERVICES: Service[] = [
   },
   {
     slug: 'maintenance',
-    emoji: '🔧',
+    iconKey: 'maintenance',
+    category: 'Service',
     title: 'In-Season Maintenance',
     short:
-      'Bulb out, clip loose, squirrel made a meal of a wire? We’re back within 72 hours.',
+      'Bulb out, clip loose, squirrel made a meal of a wire? You text — we’re back within 72 hours and fix it at no extra charge. No tickets, no upsells.',
     full: 'Every install we do is covered by free in-season maintenance. If anything goes wrong between Thanksgiving and New Year’s, we respond within 72 hours and fix it at no extra cost. No tickets, no upsells. You text, we show up.',
     bullets: [
       '72-hour response across the season',
@@ -86,10 +101,11 @@ export const SERVICES: Service[] = [
   },
   {
     slug: 'takedown',
-    emoji: '📦',
+    iconKey: 'takedown',
+    category: 'Service',
     title: 'Takedown & Storage',
     short:
-      'After the season we remove everything and label-store it under your name. You do nothing.',
+      'After the season we remove every clip, bulb and cord and pack it into labeled bins kept in our facility — so next year it’s the same set, fitted again.',
     full: 'Most homeowners dread January more than they enjoy December. We come back on a scheduled day, remove every clip, every bulb, every cord, and pack it into labeled bins kept in our climate-controlled storage. Next year it comes back to your house ready to install.',
     bullets: [
       'Scheduled takedown after Three Kings’ Day',
@@ -100,10 +116,11 @@ export const SERVICES: Service[] = [
   },
   {
     slug: 'design',
-    emoji: '🎨',
+    iconKey: 'design',
+    category: 'Service',
     title: 'Custom Design',
     short:
-      'A free in-person consult and a hand-drawn lighting plan made for your specific home.',
+      'Free in-person consult and a hand-drawn lighting plan made for your specific home. Itemized quote in three business days — no upsells, no obligation.',
     full: 'Not sure what you want yet? We come to your property, walk the site with you, take measurements, and put together a lighting plan and quote — usually within three business days. Simple elegance, full winter wonderland, or something in between.',
     bullets: [
       'In-person walkthrough and measure',
@@ -118,33 +135,33 @@ export type Testimonial = {
   quote: string;
   author: string;
   location: string;
-  years?: string;
 };
 
+// NOTE: Placeholders. Replace `author` with real, permission-cleared customer names
+// (or keep generic attributions). Quotes can stay if accurate to your brand voice.
 export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
-      'The process was smooth, simple, quick — and the results were spectacular. Our house was the brightest on the block all season. The crew was polite, professional, and on time.',
-    author: 'The Petrillo Family',
-    location: 'Bergen County, NJ',
+      'Smooth, simple, quick — and the results were spectacular. The crew was polite, professional, and on time. Best-looking house on the block all season.',
+    author: 'Bergen County Homeowner',
+    location: 'New Milford, NJ',
   },
   {
     quote:
       'Four years running and they still impress us every time. Custom-measured, top-quality lighting, and they handle takedown and storage. Worth every penny.',
-    author: 'Maria K.',
-    location: 'New Milford, NJ',
-    years: '4-Year Customer',
+    author: 'New Milford Resident',
+    location: '4-Year Customer',
   },
   {
     quote:
-      'We use Let It Glow for both our restaurant and our home. Couldn’t be happier. Clean install, never an issue, and any time something flickered they were back in 24 hours.',
-    author: 'Anthony D.',
-    location: 'Local Business Owner',
+      'We use Let It Glow for both our business and our home. Clean install, never an issue, and any time something flickered they were back the next day.',
+    author: 'Local Business Owner',
+    location: 'Bergen County, NJ',
   },
   {
     quote:
-      'No more wobbly ladders, no more storage in the attic, no more figuring out which strand died. Just beautiful lights every year. A genuinely hassle-free luxury.',
-    author: 'The Coleman Family',
+      'No more wobbly ladders, no more storage in the attic. Just beautiful lights every year. Genuinely the easiest luxury we’ve added to the house.',
+    author: 'Teaneck Homeowner',
     location: 'Teaneck, NJ',
   },
 ];
@@ -156,12 +173,16 @@ export type FaqItem = {
 
 export const FAQS: FaqItem[] = [
   {
+    q: 'Do you only do holiday lighting?',
+    a: 'No — we install permanent landscape, architectural and uplighting year-round. Holiday is our flagship season because that’s when most homes go up, but we’re busy in spring, summer, and fall too.',
+  },
+  {
     q: 'Do I need to buy my own lights?',
     a: 'No. We supply commercial-grade C9 and mini-LED lights as part of our service. You don’t buy them, store them, or replace them — they’re ours, and we maintain them year over year.',
   },
   {
     q: 'When should I book?',
-    a: 'Earlier is better. Most of our prime weekends in November and December are taken by mid-September. We start booking the next season as soon as the current one ends.',
+    a: 'For holiday installs, earlier is much better. Most prime weekends in November and December are taken by mid-September. Year-round landscape and architectural work can be scheduled any time.',
   },
   {
     q: 'What happens if a bulb burns out?',
@@ -169,7 +190,7 @@ export const FAQS: FaqItem[] = [
   },
   {
     q: 'Do you serve commercial properties?',
-    a: 'Yes — restaurants, retail, office parks, multi-family residential and HOAs across Bergen County. We can provide a Certificate of Insurance and work with property managers on payment terms.',
+    a: 'Yes — restaurants, retail, dealerships, office parks, multi-family residential, and HOAs across Bergen County. We can provide a Certificate of Insurance and work with property managers on payment terms.',
   },
   {
     q: 'How much does it cost?',
@@ -180,44 +201,40 @@ export const FAQS: FaqItem[] = [
     a: 'Fully insured — general liability and workers’ comp. We can email a current COI to your property manager or HOA on request.',
   },
   {
-    q: 'What if I want to add or change something mid-season?',
-    a: 'Call or text. Most additions can be done within a week. Changes are billed at our standard add-on rate and added to your existing install.',
-  },
-  {
-    q: 'Do you handle the takedown too?',
+    q: 'Do you handle takedown too?',
     a: 'Yes — included. We come back on a scheduled day after the holidays, remove everything, and store the lights under your name in our facility. Same set comes back next year.',
   },
 ];
 
 export type ProcessStep = {
   num: string;
-  emoji: string;
+  iconKey: 'consult' | 'design' | 'install' | 'enjoy';
   title: string;
   desc: string;
 };
 
 export const PROCESS: ProcessStep[] = [
   {
-    num: '1',
-    emoji: '📞',
+    num: '01',
+    iconKey: 'consult',
     title: 'Free Consultation',
     desc: 'Call, text, or fill out our form. We visit your property, walk the site with you, and listen to what you want.',
   },
   {
-    num: '2',
-    emoji: '📐',
+    num: '02',
+    iconKey: 'design',
     title: 'Custom Design',
-    desc: 'We take precise measurements and draft a lighting plan with itemized pricing. No surprises, no upsells.',
+    desc: 'We measure precisely and draft a lighting plan with itemized pricing. No surprises, no upsells, no obligation.',
   },
   {
-    num: '3',
-    emoji: '🔌',
+    num: '03',
+    iconKey: 'install',
     title: 'Expert Installation',
-    desc: 'Our insured crew handles everything safely and efficiently. Outlets and timers hidden, install clean.',
+    desc: 'Our insured crew handles everything safely and efficiently. Outlets and timers hidden, install always clean.',
   },
   {
-    num: '4',
-    emoji: '😊',
+    num: '04',
+    iconKey: 'enjoy',
     title: 'Enjoy All Season',
     desc: 'We maintain through the season, then take down and store. You do nothing but enjoy the glow.',
   },
@@ -230,59 +247,115 @@ export type WhyItem = {
 
 export const WHY_ITEMS: WhyItem[] = [
   {
-    title: 'We Own the Lights — You Own the Peace of Mind',
-    desc: 'No upfront investment in lights, no storage headaches. We provide commercial-grade fixtures and store them between seasons.',
+    title: 'We own the lights — you own the peace of mind',
+    desc: 'No upfront investment, no storage headaches. We provide commercial-grade fixtures and store them between seasons.',
   },
   {
-    title: 'Trained, Insured, Local Crew',
-    desc: 'Fully insured for liability and workers’ comp. Trained in safe install at height. Based in New Milford — your neighbors.',
+    title: 'Trained, insured, local crew',
+    desc: 'Fully insured for liability and workers’ comp. Trained for safe install at height. Based in New Milford — your neighbors.',
   },
   {
-    title: 'Custom-Fit, Never Generic',
+    title: 'Custom-fit, never generic',
     desc: 'We measure to the inch. Lights are cut and clipped to your exact roofline, eaves and landscape — no draping or guesswork.',
   },
   {
-    title: 'Year-Round, On-Call Support',
-    desc: 'Issues don’t take holidays. We’re reachable all season for repairs, additions, and questions. Direct line to the crew.',
+    title: 'Year-round, on-call support',
+    desc: 'Issues don’t take holidays, and neither do we. Reachable all year for repairs, additions, and questions.',
+  },
+];
+
+export type StatItem = {
+  value: string;
+  label: string;
+  detail?: string;
+};
+
+export const STATS: StatItem[] = [
+  { value: '10+', label: 'Years of experience', detail: 'Lighting Bergen County' },
+  { value: '72hr', label: 'In-season response', detail: 'Free for our installs' },
+  { value: '$0', label: 'Surprise charges', detail: 'Itemized quotes only' },
+];
+
+export type FeaturedWork = {
+  slug: string;
+  title: string;
+  category: 'Commercial' | 'Residential' | 'Year-Round';
+  blurb: string;
+  image: string;
+  // Real client name if cleared for use, otherwise descriptor only.
+  client?: string;
+};
+
+// TODO: Replace blurbs and confirm client names are cleared for marketing use.
+export const FEATURED_WORK: FeaturedWork[] = [
+  {
+    slug: 'harley-davidson-showroom',
+    title: 'Harley-Davidson Showroom',
+    category: 'Commercial',
+    client: 'Harley-Davidson Dealership · Bergen County',
+    blurb:
+      'Full exterior holiday installation for a flagship motorcycle dealership — designed to draw eyes from the highway and stay reliable through three months of New Jersey winter.',
+    image: '/gallery5.jpg',
+  },
+  {
+    slug: 'colonial-warm-white',
+    title: 'Two-Story Colonial · Warm White',
+    category: 'Residential',
+    blurb:
+      'Classic warm-white roofline, custom gutter run, and tree wraps. The owner has booked us five years running.',
+    image: '/gallery2.jpg',
+  },
+  {
+    slug: 'estate-multicolor',
+    title: 'Bergen County Estate · Multicolor',
+    category: 'Residential',
+    blurb:
+      'Full-property package with roofline, landscape uplighting, and architectural color wash on the columns.',
+    image: '/gallery7.jpg',
   },
 ];
 
 export type SeasonItem = {
-  emoji: string;
+  iconKey: 'holiday' | 'spring' | 'fall' | 'commercial';
   name: string;
   desc: string;
 };
 
 export const SEASONS: SeasonItem[] = [
   {
-    emoji: '🎄',
+    iconKey: 'holiday',
     name: 'Holiday Season',
-    desc: 'Christmas, Hanukkah and winter lighting — installed, maintained, and taken down by our crew.',
+    desc: 'Christmas, Hanukkah and winter lighting — installed, maintained, and taken down.',
   },
   {
-    emoji: '🌸',
+    iconKey: 'spring',
     name: 'Spring & Summer',
-    desc: 'Landscape lighting, uplighting and architectural accents for curb appeal year-round.',
+    desc: 'Landscape lighting, uplighting, and architectural accents for curb appeal year-round.',
   },
   {
-    emoji: '🍂',
+    iconKey: 'fall',
     name: 'Fall Season',
     desc: 'Pre-season planning, design consults, and fall landscape lighting upgrades.',
   },
   {
-    emoji: '🏢',
+    iconKey: 'commercial',
     name: 'Commercial Year-Round',
     desc: 'Permanent outdoor and architectural lighting for businesses across Bergen County.',
   },
 ];
 
-export const TRUST_BAR = [
-  { icon: '🏆', text: 'Fully Insured Team' },
-  { icon: '📦', text: 'We Own the Lights' },
-  { icon: '⚡', text: '72-Hour Maintenance' },
-  { icon: '📍', text: 'New Milford, NJ Local' },
-  { icon: '🏠', text: 'Residential & Commercial' },
-] as const;
+export type TrustItem = {
+  iconKey: 'shield' | 'package' | 'zap' | 'pin' | 'home';
+  text: string;
+};
+
+export const TRUST_BAR: TrustItem[] = [
+  { iconKey: 'shield', text: 'Fully Insured Team' },
+  { iconKey: 'package', text: 'We Own the Lights' },
+  { iconKey: 'zap', text: '72-Hour Maintenance' },
+  { iconKey: 'pin', text: 'Local · New Milford, NJ' },
+  { iconKey: 'home', text: 'Residential & Commercial' },
+];
 
 export const GALLERY_IMAGES = [
   { src: '/gallery1.jpg', alt: 'Festive home with full roofline and landscape lighting' },

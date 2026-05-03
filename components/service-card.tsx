@@ -1,6 +1,30 @@
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
-import type { Service } from '@/lib/content';
+import {
+  ArrowUpRight,
+  Home,
+  Building2,
+  Sun,
+  Wrench,
+  Package,
+  PenTool,
+  type LucideIcon,
+} from 'lucide-react';
+import type { Service, ServiceIconKey } from '@/lib/content';
+
+const ICONS: Record<ServiceIconKey, LucideIcon> = {
+  residential: Home,
+  commercial: Building2,
+  'year-round': Sun,
+  maintenance: Wrench,
+  takedown: Package,
+  design: PenTool,
+};
+
+const CATEGORY_TONE: Record<Service['category'], string> = {
+  Holiday: 'bg-crimson/10 text-crimson',
+  'Year-Round': 'bg-forest/10 text-forest',
+  Service: 'bg-gold/15 text-[#7a5a08]',
+};
 
 type Props = {
   service: Service;
@@ -8,18 +32,35 @@ type Props = {
 };
 
 export default function ServiceCard({ service, variant = 'short' }: Props) {
+  const Icon = ICONS[service.iconKey];
+
   return (
     <article
       id={service.slug}
-      className="group relative bg-white rounded-2xl p-9 md:p-10 shadow-card border-t-4 border-crimson transition-all duration-300 hover:-translate-y-1.5 hover:shadow-card-hover scroll-mt-28"
+      className="group relative h-full flex flex-col bg-white rounded-2xl p-7 md:p-9 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover scroll-mt-28 border border-ink/[0.06] overflow-hidden"
     >
-      <div className="w-[60px] h-[60px] rounded-2xl bg-icon-red flex items-center justify-center text-2xl mb-6 shadow-[0_8px_20px_rgba(176,28,46,0.25)]">
-        <span aria-hidden="true">{service.emoji}</span>
+      {/* Top accent stripe — subtle, not garish */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-crimson via-gold to-forest opacity-80"
+      />
+
+      {/* Icon + category row */}
+      <div className="flex items-center justify-between mb-5">
+        <div className="w-12 h-12 rounded-xl bg-ink/[0.04] flex items-center justify-center text-ink ring-1 ring-ink/5 transition-colors group-hover:bg-crimson group-hover:text-white group-hover:ring-crimson">
+          <Icon className="w-5 h-5" strokeWidth={1.75} />
+        </div>
+        <span
+          className={`text-[0.65rem] font-bold tracking-[0.18em] uppercase px-2.5 py-1 rounded-full ${CATEGORY_TONE[service.category]}`}
+        >
+          {service.category}
+        </span>
       </div>
-      <h3 className="font-display text-[1.3rem] font-bold text-ink mb-3.5">
+
+      <h3 className="font-display text-[1.35rem] md:text-[1.4rem] font-bold text-ink leading-tight mb-3">
         {service.title}
       </h3>
-      <p className="text-[0.92rem] text-ink-light leading-[1.8]">
+      <p className="text-[0.92rem] text-ink-light leading-[1.75] flex-1">
         {variant === 'detailed' ? service.full : service.short}
       </p>
 
@@ -28,7 +69,7 @@ export default function ServiceCard({ service, variant = 'short' }: Props) {
           {service.bullets.map((b) => (
             <li
               key={b}
-              className="flex gap-3 text-[0.9rem] text-ink-light leading-[1.6]"
+              className="flex gap-3 text-[0.88rem] text-ink-light leading-[1.6]"
             >
               <span
                 aria-hidden="true"
@@ -41,12 +82,15 @@ export default function ServiceCard({ service, variant = 'short' }: Props) {
       )}
 
       {variant === 'short' && (
-        <Link
-          href={`/services#${service.slug}`}
-          className="mt-5 inline-flex items-center gap-1.5 text-crimson font-bold text-[0.78rem] tracking-[0.12em] uppercase hover:gap-2.5 transition-all"
-        >
-          Learn more <ArrowRight className="w-3.5 h-3.5" />
-        </Link>
+        <div className="mt-7 pt-5 border-t border-ink/[0.06] flex items-center justify-between">
+          <Link
+            href={`/services#${service.slug}`}
+            className="inline-flex items-center gap-1.5 text-crimson font-bold text-[0.74rem] tracking-[0.14em] uppercase hover:gap-2.5 transition-all"
+          >
+            Learn more
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
       )}
     </article>
   );

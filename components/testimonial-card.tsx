@@ -24,7 +24,6 @@ export default function TestimonialCard({ t }: { t: Testimonial }) {
         </p>
         <p className="text-[0.75rem] text-ink-light tracking-wide mt-1">
           {t.location}
-          {t.years ? ` · ${t.years}` : ''}
         </p>
       </figcaption>
     </figure>

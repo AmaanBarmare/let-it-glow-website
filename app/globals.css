@@ -54,27 +54,6 @@ body {
   transform: translateY(0);
 }
 
-/* Snowfall */
-.snowflake {
-  position: absolute;
-  top: -20px;
-  color: rgba(255, 255, 255, 0.65);
-  user-select: none;
-  pointer-events: none;
-  text-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
-}
-
-@keyframes snowfall {
-  0% {
-    transform: translateY(-20px) rotate(0deg);
-    opacity: 0.9;
-  }
-  100% {
-    transform: translateY(110vh) rotate(360deg);
-    opacity: 0;
-  }
-}
-
 /* Section dashed connector for the Process section */
 .process-line {
   background: repeating-linear-gradient(

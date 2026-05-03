@@ -3,7 +3,6 @@ import { Lato, Playfair_Display } from 'next/font/google';
 import './globals.css';
 import Nav from '@/components/nav';
 import Footer from '@/components/footer';
-import Snow from '@/components/snow';
 import { SITE } from '@/lib/content';
 
 const display = Playfair_Display({
@@ -56,7 +55,6 @@ export default function RootLayout({
         <a href="#main" className="skip-link">
           Skip to content
         </a>
-        <Snow />
         <Nav />
         <main id="main">{children}</main>
         <Footer />

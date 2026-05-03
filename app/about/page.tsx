@@ -10,7 +10,7 @@ import { SITE } from '@/lib/content';
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'Let It Glow Holiday Lighting is a family-run, fully-insured holiday lighting company based in New Milford, NJ — serving all of Bergen County since day one.',
+    'Let It Glow Holiday Lighting is owner-operated by Cory Mancini, based in New Milford, NJ — serving Bergen County and beyond for over a decade.',
 };
 
 const VALUES = [
@@ -45,12 +45,14 @@ export default function AboutPage() {
             About Us
           </p>
           <h1 className="font-display font-black leading-[1.1] text-white text-[clamp(2.4rem,6vw,4.8rem)] mb-6">
-            The Local Crew Behind <br className="hidden md:inline" />
-            <span className="text-gold-light italic">Bergen County’s Brightest Homes</span>
+            10+ years lighting up <br className="hidden md:inline" />
+            <span className="text-gold-light italic">Bergen County.</span>
           </h1>
           <p className="text-base md:text-lg text-white/75 leading-[1.8] max-w-[700px] mx-auto">
-            Family-run, fully insured, and based in New Milford — we’ve been
-            making homes and businesses across Bergen County glow for years.
+            Owner-operated by Cory Mancini, fully insured, and based in New
+            Milford. We design, install, maintain and store outdoor lighting
+            for homes and businesses across New Jersey — and we’ve been doing
+            it for over a decade.
           </p>
         </div>
       </section>
@@ -75,16 +77,17 @@ export default function AboutPage() {
                   that way.
                 </p>
                 <p>
-                  Let It Glow Holiday Lighting started right here in New
-                  Milford with a simple promise: do it the way it should be
-                  done — measured, custom-fit, professionally installed,
-                  maintained through the season, and taken down without you
-                  lifting a finger.
+                  Cory Mancini started Let It Glow Holiday Lighting right
+                  here in New Milford with a simple promise: do it the way it
+                  should be done — measured, custom-fit, professionally
+                  installed, maintained through the season, and taken down
+                  without you lifting a finger.
                 </p>
                 <p>
-                  Today we run residential and commercial installs across
-                  Bergen County and beyond. Same crew, same standard, every
-                  year.
+                  Ten-plus years later, we run residential and commercial
+                  installs across Bergen County and beyond — including a
+                  recent flagship build for a Harley-Davidson dealership.
+                  Same crew, same standard, every year.
                 </p>
               </div>
               <div className="mt-8">
